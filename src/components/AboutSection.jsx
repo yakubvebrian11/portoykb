@@ -115,16 +115,11 @@ function AboutSection() {
                   variants={textVariants}
                   className="text-zinc-300 text-xs md:text-sm leading-relaxed text-justify "
                 >
-                  Electrical Engineering graduate with a background in power
-                  systems. Experienced in network maintenance, electrical
-                  installation, and power distribution, as well as developing
-                  analytical tools for three-phase transformer load imbalance
-                  analysis using GNU Octave. Has a strong interest in power
-                  systems, particularly in distribution network analysis,
-                  transformer load optimization, and renewable energy
-                  integration. Demonstrates a structured, analytical, and
-                  solution-oriented mindset, with strong adaptability in dynamic
-                  work environments.
+                  Detail-oriented Electrical Engineering graduate with a strong foundation in power systems, 
+                  electrical system design, and control systems. Experienced through internship in network maintenance, 
+                  installation, and distribution, including developing analytical tools for three-phase transformer load 
+                  imbalance using GNU Octave. Possesses a structured, analytical mindset with a strong interest in 
+                  distribution network analysis, transformer load optimization, and renewable energy integration.
                 </motion.p>
               </div>
             </div>
