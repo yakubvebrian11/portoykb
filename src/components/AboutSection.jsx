@@ -48,7 +48,7 @@ function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex justify-center mb-6" 
+          className="flex justify-center mb-6"
         >
           <motion.h1
             initial={{ opacity: 0, scale: 0.9 }}
@@ -112,15 +112,21 @@ function AboutSection() {
                 </motion.p>
 
                 <motion.p
-                  variants={textVariants}
-                  className="text-zinc-300 text-xs md:text-sm leading-relaxed text-justify "
-                >
-                  Detail-oriented Electrical Engineering graduate with a strong foundation in power systems, 
-                  electrical system design, and control systems. Experienced through internship in network maintenance, 
-                  installation, and distribution, including developing analytical tools for three-phase transformer load 
-                  imbalance using GNU Octave. Possesses a structured, analytical mindset with a strong interest in 
-                  distribution network analysis, transformer load optimization, and renewable energy integration.
-                </motion.p>
+  variants={textVariants}
+  className="text-zinc-300 text-xs md:text-sm leading-relaxed text-justify"
+>
+  Bachelor of Electrical Engineering graduate with a concentration in Power
+  Systems. Experienced through internships and laboratory assistant roles in
+  the operation, maintenance, testing, and troubleshooting of electrical
+  systems, including electrical parameter measurement, distribution transformer
+  load analysis, network inspection, and voltage disturbance troubleshooting.
+  Skilled in designing motor control panels, including Direct On-Line (DOL),
+  Forward-Reverse, Star-Delta, Automatic Transfer Switch (ATS), and
+  interlocking systems, with fundamental knowledge of PLC programming using
+  CX-Programmer. Proficient in ETAP, AutoCAD, and CADe SIMU. Possess strong
+  analytical and communication skills, with the ability to work effectively
+  both independently and as part of a team.
+</motion.p>
               </div>
             </div>
           </motion.div>
