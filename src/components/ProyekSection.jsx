@@ -36,7 +36,7 @@ const ProyekSection = () => {
           </h1>
         </div>
 
-        {/* Mobile View Slider */}
+       
         <div className="sm:hidden">
           <Swiper
             modules={[Pagination]}
@@ -77,7 +77,7 @@ const ProyekSection = () => {
           </Swiper>
         </div>
 
-        {/* Desktop View Grid */}
+      
         <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {listProyek.map((proyek, index) => (
             <div
@@ -110,7 +110,7 @@ const ProyekSection = () => {
           ))}
         </div>
 
-        {/* Modal Project Detail */}
+      
         {selectedProject &&
           createPortal(
             <>
@@ -154,7 +154,7 @@ const ProyekSection = () => {
                       {Object.keys(selectedProject).map((key) => {
                         if (["id", "cover", "nama", "tahun", "desk", "gallery"].includes(key)) return null;
 
-                        // 1. Render data bertipe String Tunggal (seperti Functional Baru) dengan rata kanan-kiri
+                       
                         if (typeof selectedProject[key] === "string") {
                           return (
                             <div key={key}>
@@ -168,7 +168,7 @@ const ProyekSection = () => {
                           );
                         }
 
-                        // 2. Render data bertipe Array
+                  
                         if (Array.isArray(selectedProject[key])) {
                           const isArrayOfObjects = typeof selectedProject[key][0] === "object";
 
@@ -200,7 +200,7 @@ const ProyekSection = () => {
                             );
                           }
 
-                          // Render Array String biasa (fitur, frontend, performance, dll)
+                         
                           return (
                             <div key={key}>
                               <h4 className="text-xs font-bold uppercase text-amber-400 mb-3 tracking-wider">
@@ -220,7 +220,7 @@ const ProyekSection = () => {
                       })}
                     </div>
 
-                    {/* Gallery/Documentation Section */}
+               
                     {selectedProject.gallery && selectedProject.gallery.length > 0 && (
                       <div className="mt-10 pt-4">
                         <h4 className="text-xs font-bold uppercase text-amber-400 mb-4 text-center tracking-wider">
@@ -272,7 +272,7 @@ const ProyekSection = () => {
             document.body
           )}
 
-        {/* Full Image Preview Zoom Modal */}
+      
         {previewImage &&
           createPortal(
             <div className="fixed inset-0 z-99999 flex items-center justify-center p-4 animate-in fade-in duration-150">
