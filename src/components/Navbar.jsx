@@ -66,67 +66,74 @@ const Navbar = () => {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md transition-colors duration-300 ${
+        className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md transition-all duration-300 ${
           scrolled
-            ? "bg-[#051F36]/90 border-b border-slate-700 shadow-xl"
-            : "bg-[#051F36] border-b border-slate-700"
+            ? "bg-[#051F36]/90 border-b border-slate-700/50 shadow-xl py-2.5"
+            : "bg-[#051F36]/60 border-b border-transparent py-4"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-20 py-3 flex items-center justify-between">
+        
+        <div className="w-full mx-auto px-4 sm:px-6 md:px-10 lg:px-16 flex items-center justify-between">
+          
+         
           <h1
-            className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-wide cursor-pointer"
+            className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-wide cursor-pointer flex items-center gap-1 select-none group"
             onClick={() => scrollToSection("home")}
           >
-            <i className="ri-account-box-fill text-amber-400 mr-1"></i>
-            Porto<span className="text-amber-400">folio.</span>
+            <i className="ri-account-box-fill text-amber-400 transition-transform group-hover:scale-110"></i>
+            <span>Porto</span><span className="text-amber-400">folio.</span>
           </h1>
 
-          <nav className="hidden md:flex gap-6 lg:gap-8 text-white font-medium text-sm lg:text-base">
+         
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-white font-medium text-sm lg:text-base">
             {sections.current.map((section) => (
               <motion.button
                 key={section}
-                whileHover={{ y: -2 }}
+                whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection(section)}
-                className={`relative group transition-colors duration-300 ${
+                className={`relative py-1 transition-colors duration-300 font-semibold tracking-wide ${
                   activeSection === section ? "text-amber-400" : "text-slate-300 hover:text-amber-400"
                 }`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
                 <span
-                  className={`absolute -bottom-1 left-0 h-0.5 bg-amber-400 transition-all duration-300 ${
-                    activeSection === section ? "w-full" : "w-0 group-hover:w-full"
+                  className={`absolute bottom-0 left-0 h-0.5 bg-amber-400 transition-all duration-300 ${
+                    activeSection === section ? "w-full" : "w-0 hover:w-full"
                   }`}
                 ></span>
               </motion.button>
             ))}
           </nav>
 
+          
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden text-white text-2xl p-2"
+            className="md:hidden text-white text-2xl p-2 focus:outline-hidden hover:text-amber-400 transition-colors"
           >
             <i className={open ? "ri-close-line" : "ri-menu-line"}></i>
           </button>
         </div>
 
+       
         <AnimatePresence>
           {open && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0, transition: { duration: 0 } }}
-              className="md:hidden bg-[#051F36] border-t border-slate-700 overflow-hidden"
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden bg-[#051F36]/95 backdrop-blur-md border-t border-slate-700/60 overflow-hidden"
             >
-              <div className="flex flex-col p-4 gap-2">
+              <div className="flex flex-col p-4 gap-1.5">
                 {sections.current.map((section) => (
                   <button
                     key={section}
                     onClick={() => scrollToSection(section)}
-                    className={`w-full text-left py-4 px-6 rounded-lg transition-all ${
+                    className={`w-full text-left py-3 px-6 rounded-xl transition-all font-medium ${
                       activeSection === section
-                        ? "text-amber-400 bg-slate-800"
-                        : "text-slate-300 hover:bg-slate-800"
+                        ? "text-amber-400 bg-slate-800/80 shadow-inner"
+                        : "text-slate-300 hover:bg-slate-800/40 hover:text-white"
                     }`}
                   >
                     {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -137,6 +144,7 @@ const Navbar = () => {
           )}
         </AnimatePresence>
       </motion.header>
+ 
     </>
   );
 };
