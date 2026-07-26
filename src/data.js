@@ -30,6 +30,8 @@ import Tools21 from "/assets/tools/C++.png";
 import Tools22 from "/assets/tools/css.png";
 import Tools23 from "/assets/tools/html.png";
 import Tools24 from "/assets/tools/atmel.png";
+import Tools25 from "/assets/tools/cadesimu.png";
+import Tools26 from "/assets/tools/cxp.png";
 
 export const listTools = [
   {
@@ -224,6 +226,22 @@ export const listTools = [
     kategori: "Coding Tools",
     dad: "2400",
   },
+  {
+    id: 25,
+    gambar: Tools25,
+    nama: "CADe SIMU",
+    ket: "Electrical Control Circuit Simulation",
+    kategori: "Engineering",
+    dad: "2500",
+  },
+  {
+    id: 26,
+    gambar: Tools26,
+    nama: "CX-Programming",
+    ket: "Programable Logic Controller (PLC)",
+    kategori: "Engineering",
+    dad: "2600",
+  },
 ];
 
 export const categories = [
@@ -245,7 +263,11 @@ export const getToolsByCategory = (categoryId) => {
 
 import Proyek1 from "/assets/proyek/proyek1.webp";
 import Proyek2 from "/assets/proyek/proyek2.webp";
-import Proyek3 from "/assets/proyek/proyek3.webp";
+import Proyek7 from "/assets/proyek/proyek3.webp";
+import Proyek3 from "/assets/proyek/proyek4.png";
+import Proyek4 from "/assets/proyek/proyek5.png";
+import Proyek5 from "/assets/proyek/proyek6.png";
+import Proyek6 from "/assets/proyek/proyek7.png";
 
 export const listProyek = [
   {
@@ -338,19 +360,316 @@ export const listProyek = [
     ],
   },
 
+ {
+  "id": 3,
+  "cover": Proyek3,
+  "nama": "Design Layout ATS",
+  "tahun": "2024",
+  "desk": "Automatic Transfer Switch (ATS) design layout and control schematic project. This electrical engineering design focuses on creating an automatic main power-to-backup power transition system infrastructure, ensuring optimal space planning, safe wiring paths, and structured physical component layout configurations inside a distribution box panel.",
+  "Functional": "The Automatic Transfer Switch (ATS) system operates by continuously monitoring the availability of the main power source (PLN) using an electromagnetic relay, keeping the main contactor energized to supply the load while the backup source contactor remains de-energized. When the main power source experiences a power outage or voltage loss, the relay detects the condition and activates Timer 1, which after a 5-second delay, sends a signal to energize the backup source contactor and transfer the load. Once the main power source is restored and its voltage returns to normal, the relay detects the recovered supply and activates Timer 2, initiating another 5-second delay before de-energizing the backup contactor and re-energizing the main contactor to transfer the load back. Throughout this entire transfer process, both contactors operate with a strict interlocking sequence, ensuring they cannot be energized simultaneously.",
+  "Specification": [
+    {
+      "component": "Miniature Circuit Breaker (MCB)",
+      "specification": "Schneider Electric Acti9 iK60N, 1P+N, 6A, 230 VAC",
+      "function": "Provides protection and serves as the main control power supply."
+    },
+    {
+      "component": "Magnetic Contactor",
+      "specification": "2 × Schneider Electric LC1D09M7, 3P, 9A, 220 VAC Coil",
+      "function": "Switches the load between the main power source and the backup power source."
+    },
+    {
+      "component": "On-Delay Timer",
+      "specification": "2 × Schneider Electric RE17RMMW, 24–240 VAC/DC (Set to 5 Seconds)",
+      "function": "Provides a 5-second delay during power source transfer."
+    },
+    {
+      "component": "Electromagnetic Relay",
+      "specification": "Schneider Electric RXM2AB2P7, DPDT, 220 VAC Coil",
+      "function": "Monitors the main power source and controls the transfer sequence."
+    },
+    {
+      "component": "Pilot Lamp",
+      "specification": "Schneider Electric Harmony XB5AVB3, Ø22 mm, Green/Red, 230 VAC LED",
+      "function": "Indicates the active power source."
+    },
+    {
+      "component": "Terminal Block",
+      "specification": "Schneider Electric Linergy TR, 2.5 mm²",
+      "function": "Provides cable termination and wiring connections."
+    },
+    {
+      "component": "DIN Rail",
+      "specification": "TS35 Galvanized Steel Rail (IEC 60715)",
+      "function": "Supports mounting of electrical components."
+    }
+  ],
+  "gallery": [
+    "/assets/proyek/ATS/A0.webp",
+    "/assets/proyek/ATS/A1.webp",
+    "/assets/proyek/ATS/A2.webp",
+    "/assets/proyek/ATS/A3.webp",
+    "/assets/proyek/ATS/A4.webp",
+    "/assets/proyek/ATS/A5.webp",
+    "/assets/proyek/ATS/A6.PNG",
+    "/assets/proyek/ATS/A7.PNG",
+    "/assets/proyek/ATS/A8.PNG"
+  ]
+},
+
   {
-    id: 3,
-    cover: Proyek3,
+  "id": 4,
+  "cover": Proyek4,
+  "nama": "Design Layout Direct On - Line (DOL)",
+  "tahun": "2024",
+  "desk": "This project focuses on the comprehensive design and simulation of a Direct-On-Line (DOL) Control Panel for a 1 HP (0.75 kW) three-phase induction motor starting system. The engineering workflow integrates high-precision 2D/3D physical layout modeling in AutoCAD with rigorous logical and functional validation inside CADe SIMU. By bridging mechanical spatial design and electrical control logic, the project ensures safety standard compliance, optimal wiring pathways, and flawless protection coordination before physical panel assembly.",
+  "Functional": "The Direct-On-Line (DOL) starting system operates by delivering full three-phase line voltage directly to the 1 HP motor terminals when the Normally Open (NO) Start button is pressed, which activates the magnetic contactor coil and simultaneously closes the auxiliary NO contact (13-14) to establish a self-holding (latching) circuit that maintains power after the button is released. This continuous power supply remains active until the system is either manually shut down by pressing the Normally Closed (NC) Stop button—instantly interrupting the control loop—or automatically tripped by the Thermal Overload Relay (TOR) opening its NC contact (95-96) due to excessive thermal generation from an overcurrent condition, thereby isolating the motor and protecting its stator windings from severe damage.",
+  "Specification": [
+    {
+      "component": "Miniature Circuit Breaker (Power)",
+      "specification": "Schneider Electric Acti9 iK60N, 3P, 6A",
+      "function": "Protects the 3-phase power circuit from short circuits."
+    },
+    {
+      "component": "Miniature Circuit Breaker (Control)",
+      "specification": "Schneider Electric Acti9 iK60N, 1P, 6A",
+      "function": "Protects and supplies power to the control circuit."
+    },
+    {
+      "component": "Magnetic Contactor",
+      "specification": "Schneider Electric LC1D09M7, 3P, 9A, 220 VAC Coil",
+      "function": "Connects and disconnects power to the motor."
+    },
+    {
+      "component": "Thermal Overload Relay",
+      "specification": "Schneider Electric LRD07 (1.6–2.5 A)",
+      "function": "Protects the 1 HP motor from overcurrent and overload."
+    },
+    {
+      "component": "Push Button (Start)",
+      "specification": "Schneider Electric Harmony XB5AA31, NO, Ø22 mm",
+      "function": "Starts the motor."
+    },
+    {
+      "component": "Push Button (Stop)",
+      "specification": "Schneider Electric Harmony XB5AA42, NC, Ø22 mm",
+      "function": "Stops the motor."
+    },
+    {
+      "component": "Pilot Lamp",
+      "specification": "Schneider Electric Harmony XB5 Series, Green, Red, Yellow, Ø22 mm, 220 VAC LED",
+      "function": "Indicates motor operating and power status."
+    },
+    {
+      "component": "Terminal Strip",
+      "specification": "12 Pole, 25 A, 600 V",
+      "function": "Provides cable connection points for panel wiring."
+    },
+    {
+      "component": "DIN Rail",
+      "specification": "TS35, Galvanized Steel",
+      "function": "Mounts internal electrical components."
+    }
+  ],
+  "gallery": [
+    "/assets/proyek/DOL/D1.png",
+    "/assets/proyek/DOL/D2.png",
+    "/assets/proyek/DOL/D3.webp",
+    "/assets/proyek/DOL/D4.webp",
+    "/assets/proyek/DOL/D5.webp",
+    "/assets/proyek/DOL/D6.PNG",
+    "/assets/proyek/DOL/D7.webp",
+    "/assets/proyek/DOL/D8.webp",
+    "/assets/proyek/DOL/D9.webp",
+    "/assets/proyek/DOL/D10.webp"
+  ]
+},
+
+  {
+  "id": 5,
+  "cover": Proyek5,
+  "nama": "Design Layout Forward Reverse",
+  "tahun": "2024",
+  "desk": "This project focuses on the comprehensive design and simulation of a Forward-Reverse Control Panel for a 1 HP (0.75 kW) three-phase induction motor rotational direction management system. The engineering workflow integrates high-precision 2D/3D physical layout modeling in AutoCAD with rigorous logical and functional validation inside CADe SIMU. By bridging mechanical spatial design and electrical control logic, the project ensures safety standard compliance, optimal wiring pathways, and flawless electrical interlocking coordination to prevent short circuits before physical panel assembly.",
+  "Functional": "The Forward-Reverse motor control system operates by alternating the phase sequence supplied to a 1 HP three-phase induction motor through the coordination of two separate magnetic contactors. When the Forward button is pressed, the first contactor coil energizes, securing a self-holding path and running the motor clockwise. Pressing the Reverse button activates the second contactor, swapping two power phases to reverse the motor's rotational direction. Throughout this process, a strict electrical interlocking sequence is maintained via normally closed (NC) auxiliary contacts to prevent both contactors from energizing simultaneously, which would cause a catastrophic phase-to-phase short circuit. The entire operation remains safely active until interrupted by the manual Stop button or automatically tripped by the Thermal Overload Relay (TOR) protecting the system from overcurrent conditions.",
+  "Specification": [
+    {
+      "component": "Miniature Circuit Breaker (Power)",
+      "specification": "Schneider Electric Acti9 iK60N, 3P, 6A",
+      "function": "Provides short-circuit and overload protection for the 1 HP three-phase power circuit."
+    },
+    {
+      "component": "Miniature Circuit Breaker (Control)",
+      "specification": "Schneider Electric Acti9 iK60N, 1P, 6A",
+      "function": "Provides protection and power supply for the control circuit."
+    },
+    {
+      "component": "Magnetic Contactor",
+      "specification": "2 × Schneider Electric LC1D09M7, 3P, 9A, 220 VAC Coil",
+      "function": "Controls the forward and reverse rotation of the three-phase induction motor."
+    },
+    {
+      "component": "Thermal Overload Relay",
+      "specification": "Schneider Electric LRD07 (1.6–2.5 A)",
+      "function": "Protects the 1 HP motor against overload conditions by monitoring phase current."
+    },
+    {
+      "component": "Push Button (Forward)",
+      "specification": "Schneider Electric Harmony XB5AA31, NO, Ø22 mm",
+      "function": "Starts the motor in the forward direction."
+    },
+    {
+      "component": "Push Button (Reverse)",
+      "specification": "Schneider Electric Harmony XB5AA31, NO, Ø22 mm",
+      "function": "Starts the motor in the reverse direction."
+    },
+    {
+      "component": "Push Button (Stop)",
+      "specification": "Schneider Electric Harmony XB5AA42, NC, Ø22 mm",
+      "function": "Stops the motor by interrupting the control circuit."
+    },
+    {
+      "component": "Emergency Stop Push Button",
+      "specification": "Schneider Electric Harmony XB5AS542, NC, Ø22 mm, Twist Release",
+      "function": "Immediately disconnects the control circuit during emergency conditions."
+    },
+    {
+      "component": "Pilot Lamp",
+      "specification": "Schneider Electric Harmony XB5 Series, Green, Yellow, Red, Ø22 mm, 220 VAC LED",
+      "function": "Indicates power availability and motor operating status."
+    },
+    {
+      "component": "Terminal Strip",
+      "specification": "12 Pole, 25 A, 600 V",
+      "function": "Provides cable termination and distribution for the control circuit."
+    },
+    {
+      "component": "DIN Rail",
+      "specification": "TS35, Galvanized Steel",
+      "function": "Supports mounting of electrical components."
+    },
+    {
+      "component": "Wire Duct",
+      "specification": "PVC Slotted Wiring Duct, 40 × 40 mm",
+      "function": "Organizes and protects internal panel wiring."
+    }
+  ],
+  "gallery": [
+    "/assets/proyek/FW/A0.webp",
+    "/assets/proyek/FW/A1.webp",
+    "/assets/proyek/FW/A2.webp",
+    "/assets/proyek/FW/A3.webp",
+    "/assets/proyek/FW/A4.webp",
+    "/assets/proyek/FW/A5.webp",
+    "/assets/proyek/FW/A6.PNG",
+    "/assets/proyek/FW/A7.webp",
+    "/assets/proyek/FW/A8.PNG",
+    "/assets/proyek/FW/A9.PNG",
+    "/assets/proyek/FW/A10.PNG",
+    "/assets/proyek/FW/A11.PNG"
+  ]
+},
+
+ {
+  "id": 6,
+  "cover": Proyek6,
+  "nama": "Design Layout Star Delta",
+  "tahun": "2024",
+  "desk": "This project focuses on the engineering design and simulation of a Star-Delta Control Panel for a 3 HP (2.2 kW) three-phase induction motor starting infrastructure using AutoCAD. The design pipeline covers high-precision 3D layout modeling, spatial component arrangements, and technical schematics. The control logic is comprehensively simulated and validated inside CADe SIMU to verify sequential switching phases, automatic transitions, electrical interlocking safety, and heavy-duty motor protection systems.",
+  "Functional": "The Star-Delta control system operates by reducing the starting current of a 3 HP three-phase induction motor through a multi-stage electrical transition managed by three distinct contactors: Main, Star, and Delta. Upon pressing the Start button, the Main and Star contactors activate simultaneously, connecting the motor windings in a Star configuration to draw lower initial current from the grid. Once the preset time on the On-Delay Timer is reached, the Star contactor disengages and the Delta contactor safely activates, transitioning the motor to a full-voltage Delta run configuration. A critical electrical interlocking circuit is maintained via auxiliary contacts to prevent simultaneous operation of the Star and Delta contactors, avoiding hazardous phase-to-phase short circuits. The entire control loop remains fully operational until interrupted by the manual Stop command or tripped by the Thermal Overload Relay.",
+  "Specification": [
+    {
+      "component": "Miniature Circuit Breaker (Power)",
+      "specification": "Schneider Electric Acti9 iK60N, 3P, 6A (Curve C)",
+      "function": "Provides short-circuit and overload protection for the 3 HP three-phase motor power circuit."
+    },
+    {
+      "component": "Miniature Circuit Breaker (Control)",
+      "specification": "Schneider Electric Acti9 iK60N, 1P, 6A",
+      "function": "Provides protection and power supply for the control circuit."
+    },
+    {
+      "component": "Main Contactor",
+      "specification": "Schneider Electric LC1D09M7, 3P, 9A, 220 VAC Coil",
+      "function": "Connects the motor to the main power supply during both Star and Delta operation."
+    },
+    {
+      "component": "Star Contactor",
+      "specification": "Schneider Electric LC1D09M7, 3P, 9A, 220 VAC Coil",
+      "function": "Connects the motor windings in the Star configuration during starting."
+    },
+    {
+      "component": "Delta Contactor",
+      "specification": "Schneider Electric LC1D09M7, 3P, 9A, 220 VAC Coil",
+      "function": "Reconnects the motor windings in the Delta configuration after the preset delay."
+    },
+    {
+      "component": "On-Delay Timer",
+      "specification": "Schneider Electric RE17RMMW, 0.1–100 Hours, 24–240 VAC/DC",
+      "function": "Controls the automatic transition from Star to Delta operation."
+    },
+    {
+      "component": "Thermal Overload Relay",
+      "specification": "Schneider Electric LRD10 (4–6 A)",
+      "function": "Protects the 3 HP motor against overload conditions by monitoring phase current."
+    },
+    {
+      "component": "Push Button (Start)",
+      "specification": "Schneider Electric Harmony XB5AA31, NO, Green, Ø22 mm",
+      "function": "Initiates the Star-Delta starting sequence."
+    },
+    {
+      "component": "Push Button (Stop)",
+      "specification": "Schneider Electric Harmony XB5AA42, NC, Red, Ø22 mm",
+      "function": "Stops the motor by interrupting the control circuit."
+    },
+    {
+      "component": "Emergency Stop Push Button",
+      "specification": "Schneider Electric Easy Harmony XA2ES542, 1NC, Latching Turn-to-Release, Ø22 mm",
+      "function": "Provides immediate emergency shutdown by cutting off the control circuit supply and locking it open until manually reset."
+    },
+    {
+      "component": "Pilot Lamp",
+      "specification": "Schneider Electric Harmony XB5 Series, Green, Yellow, Red, Ø22 mm, 220 VAC LED",
+      "function": "Indicates power availability, run status, and fault/trip conditions of the control system."
+    },
+    {
+      "component": "Terminal Strip",
+      "specification": "12 Pole, 25 A, 600 V",
+      "function": "Provides secure cable termination and distribution for external power and control connections."
+    },
+    {
+      "component": "DIN Rail",
+      "specification": "TS35, Galvanized Steel",
+      "function": "Supports the installation of electrical components inside the panel."
+    },
+    {
+      "component": "Wire Duct",
+      "specification": "PVC Slotted Wiring Duct, 40 × 40 mm",
+      "function": "Organizes and protects internal panel wiring."
+    }
+  ],
+  "gallery": [
+    "/assets/proyek/SD/S0.webp",
+    "/assets/proyek/SD/S1.webp",
+    "/assets/proyek/SD/S2.webp",
+    "/assets/proyek/SD/S3.webp",
+    "/assets/proyek/SD/S4.webp",
+    "/assets/proyek/SD/S5.webp",
+    "/assets/proyek/SD/S6.webp",
+    "/assets/proyek/SD/S7.PNG",
+    "/assets/proyek/SD/S8.PNG",
+    "/assets/proyek/SD/S9.PNG",
+    "/assets/proyek/SD/S10.PNG"
+  ]
+},
+
+  {
+    id: 7,
+    cover: Proyek7,
     nama: "Automatic Curtain",
     tahun: "2023",
-    desk: `Automatic Curtain Control System is an IoT 
-    prototype developed as a smart home automation project. 
-    The system uses an ATmega16 microcontroller programmed in C 
-    language to control the movement of the curtain based on the 
-    ambient light intensity. An LDR sensor detects the light level in 
-    real time and drives a servo motor to open the curtain when the 
-    environment is bright and close it when it is dark. The system was designed, 
-    simulated, and tested using Proteus before being implemented as a hardware prototype.`,
+    desk: "Automatic Curtain Control System is an IoT prototype developed as a smart home automation project. The system uses an ATmega16 microcontroller programmed in C language to control the movement of the curtain based on the ambient light intensity. An LDR sensor detects the light level in real time and drives a servo motor to open the curtain when the environment is bright and close it when it is dark. The system was designed, simulated, and tested using Proteus before being implemented as a hardware prototype.",
 
     Hardware: [
       "ATmega16 — Microcontroller used as the central control unit of the system",
@@ -364,12 +683,8 @@ export const listProyek = [
       "Proteus — Electronic circuit simulation software",
     ],
 
-    Functional: [
-      "The curtain automatically opens when the light intensity exceeds the threshold",
-      "The curtain automatically closes when the light intensity falls below the threshold",
-      "Manual adjustment through reset or reprogramming",
-      "A cost-effective and scalable prototype for smart home applications",
-    ],
+    Functional:
+      "The smart automated home device functions dynamically by executing real-time ambient lux monitoring. The system's control loops ensure that the motorized curtain automatically expands and opens when the integrated LDR sensor detects light intensity levels exceeding the hardcoded daybreak threshold value. Conversely, the actuator triggers the servo motor to safely close the curtain as dark ambient environments fall beneath the operational threshold. Manual adjustments and calibrations can be introduced by standard hardware reset execution or control parameter reprogramming.",
 
     gallery: [
       "/assets/proyek/bingkai/bingkai1.webp",
