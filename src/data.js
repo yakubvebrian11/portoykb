@@ -270,19 +270,12 @@ import Proyek5 from "/assets/proyek/proyek6.png";
 import Proyek6 from "/assets/proyek/proyek7.png";
 
 export const listProyek = [
-  {
+ {
     id: 2,
     cover: Proyek2,
     nama: "Web Portofolio",
     tahun: "2026",
-    desk: `A personal portfolio website developed using React 
-    with Vite as the build tool to enable a fast and lightweight 
-    development process. The interface is designed with Tailwind CSS, 
-    resulting in a modern, responsive, and consistent layout across various 
-    devices. Interactive features such as the project carousel are implemented 
-    using Swiper.js, with a modular component structure and separated data management to 
-    improve maintainability and scalability. The website is deployed on Vercel to ensure optimal 
-    performance and reliable accessibility.`,
+    desk: "A personal portfolio website developed using React with Vite as the build tool to enable a fast and lightweight development process. The interface is designed with Tailwind CSS, resulting in a modern, responsive, and consistent layout across various devices. Interactive features such as the project carousel are implemented using Swiper.js, with a modular component structure and separated data management to improve maintainability and scalability. The website is deployed on Vercel to ensure optimal performance and reliable accessibility.",
 
     frontend: [
       "React as the main library for building component-based user interfaces",
@@ -320,18 +313,7 @@ export const listProyek = [
     cover: Proyek1,
     nama: "Tool Load Unbalance Analyzer",
     tahun: "2025",
-    desk: `Load Unbalance Analyzer is a GNU Octave-based application 
-          designed to analyze the loading condition of three-phase 
-          distribution transformers interactively. The program allows 
-          users to input phase current data, transformer capacity, 
-          phase voltage, and neutral resistance through a table input 
-          or by importing data from an Excel file. 
-          The system then calculates the neutral current, loading percentage, 
-          load imbalance level using the a, b, and c coefficient method, 
-          power losses, and estimated financial losses. 
-          The application is also equipped with load balancing simulation 
-          using a greedy algorithm to support technical evaluation of 
-          electric power distribution networks.`,
+    desk: "Load Unbalance Analyzer is a GNU Octave-based application designed to analyze the loading condition of three-phase distribution transformers interactively. The program allows users to input phase current data, transformer capacity, phase voltage, and neutral resistance through a table input or by importing data from an Excel file. The system then calculates the neutral current, loading percentage, load imbalance level using the a, b, and c coefficient method, power losses, and estimated financial losses. The application is also equipped with load balancing simulation using a greedy algorithm to support technical evaluation of electric power distribution networks.",
 
     fitur: [
       "Manual data input & Excel import",
@@ -356,7 +338,6 @@ export const listProyek = [
       "/assets/proyek/ast/ast8.webp",
       "/assets/proyek/ast/ast9.webp",
       "/assets/proyek/ast/ast10.webp",
-      
     ],
   },
 
