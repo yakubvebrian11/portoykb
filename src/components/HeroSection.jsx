@@ -1,7 +1,24 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import DataImage from "../data";
 
 function HeroSection() {
+  const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
+
+  const skills = [
+    "Control Panel Design",
+    "Solar Panel Engineering",
+    "Electrical Wiring",
+    "Electrical Installation"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSkillIndex((prevIndex) => (prevIndex + 1) % skills.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [skills.length]);
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -38,75 +55,68 @@ function HeroSection() {
   };
 
   return (
-    <section className="w-full min-h-screen flex flex-col lg:flex-row relative overflow-hidden">
-      <div className="absolute inset-0 lg:hidden">
-        <img src={DataImage.HeroImage} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-slate-900/70"></div>
+    <section className="w-full min-h-screen flex flex-col lg:flex-row relative overflow-hidden bg-slate-900">
+      <div className="absolute inset-0 lg:hidden z-0">
+        <img src={DataImage.HeroImage} className="w-full h-full object-cover" alt="Background" />
+        <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-xs"></div>
       </div>
 
       <motion.div
         variants={container}
         initial="hidden"
-        whileInView="show"
-        className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-20 py-16 lg:py-0 bg-transparent lg:bg-slate-900"
+        animate="show"
+        className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 py-24 lg:py-0 bg-transparent"
       >
-        <motion.div
-          variants={item}
-          className="flex items-center gap-2 mb-5 bg-zinc-800/60 w-fit px-3 py-1.5 rounded-full border border-zinc-700"
-        >
-          <img
-            src={DataImage.HeroImage}
-            className="w-6 h-6 sm:w-7 sm:h-7 rounded-full object-cover border border-amber-400"
-          />
-          <span className="text-[10px] sm:text-xs text-zinc-300 italic">
-            What you strive for will surely come true 😊
-          </span>
-        </motion.div>
-
         <motion.h1
           variants={item}
-          className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2 text-white"
+          className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-1 text-white tracking-tight"
         >
           Hi, I'm
         </motion.h1>
 
         <motion.h1
           variants={item}
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-5 bg-linear-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-black mb-6 bg-linear-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent leading-none"
         >
           Yakub Vebrian
         </motion.h1>
 
         <motion.p
           variants={item}
-          className="text-base sm:text-lg text-zinc-200 mb-4 border-l-2 border-amber-400 pl-3"
+          className="text-lg sm:text-xl text-amber-400 mb-6 border-l-4 border-amber-400 pl-4 font-semibold tracking-wide"
         >
           Electrical Engineering Graduate
         </motion.p>
 
-        <motion.p
+        <motion.div 
           variants={item}
-          className="text-sm text-zinc-300 mb-6 max-w-md leading-relaxed text-justify"
+          className="h-14 mb-8 flex items-center bg-zinc-800/40 backdrop-blur-xs px-5 rounded-xl border border-zinc-700/40 shadow-xs max-w-xl w-full overflow-hidden"
         >
-          Electrical Engineering graduate with a strong foundation in power
-          systems and electrical installation. Experienced in analyzing
-          three-phase transformer load imbalance and developing practical
-          technical solutions through academic projects. Demonstrates strong
-          problem-solving skills, attention to safety standards, and readiness
-          to contribute effectively in real-world electrical environments.
-        </motion.p>
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={currentSkillIndex}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="text-base sm:text-lg font-bold text-amber-400 tracking-wide block w-full"
+            >
+              {skills[currentSkillIndex]}
+            </motion.span>
+          </AnimatePresence>
+        </motion.div>
 
-        <motion.div variants={item} className="flex flex-wrap gap-3">
+        <motion.div variants={item} className="flex flex-wrap gap-4">
           <a
             href="#projects"
-            className="bg-amber-500 px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg font-semibold text-black hover:bg-amber-600 transition text-sm"
+            className="bg-amber-500 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-bold text-black hover:bg-amber-600 transition text-base shadow-lg shadow-amber-500/20"
           >
             View Projects
           </a>
 
           <a
             href="#contact"
-            className="bg-zinc-800 px-5 py-2.5 sm:px-6 sm:py-3 rounded-lg border border-zinc-700 text-white hover:border-amber-400 transition text-sm"
+            className="bg-zinc-800/80 backdrop-blur-xs px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-zinc-700 text-white hover:border-amber-400 transition text-base"
           >
             Contact Me
           </a>
@@ -116,10 +126,10 @@ function HeroSection() {
       <motion.div
         variants={imageVariant}
         initial="hidden"
-        whileInView="show"
-        className="hidden lg:block w-1/2 h-full"
+        animate="show"
+        className="hidden lg:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
       >
-        <img src={DataImage.HeroImage} className="w-full h-full object-cover" />
+        <img src={DataImage.HeroImage} className="w-full h-full object-cover" alt="Hero Personal" />
       </motion.div>
     </section>
   );
