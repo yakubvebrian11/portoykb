@@ -32,10 +32,11 @@ const ProyekSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-linear-to-r from-amber-400 to-yellow-500">
-            Projects
+            Projects academic
           </h1>
         </div>
 
+        {/* Mobile View Slider */}
         <div className="sm:hidden">
           <Swiper
             modules={[Pagination]}
@@ -76,6 +77,7 @@ const ProyekSection = () => {
           </Swiper>
         </div>
 
+        {/* Desktop View Grid */}
         <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {listProyek.map((proyek, index) => (
             <div
@@ -108,6 +110,7 @@ const ProyekSection = () => {
           ))}
         </div>
 
+        {/* Modal Project Detail */}
         {selectedProject &&
           createPortal(
             <>
@@ -118,7 +121,7 @@ const ProyekSection = () => {
 
               <div className="fixed inset-0 z-9999 flex items-center justify-center p-4">
                 <div
-                  className="relative bg-slate-900/95 backdrop-blur border border-slate-700 rounded-2xl max-w-4xl w-full max-h-[70vh] overflow-hidden shadow-2xl"
+                  className="relative bg-slate-900/95 backdrop-blur border border-slate-700 rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-200"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="p-5 border-b border-slate-700 relative text-center">
@@ -133,38 +136,80 @@ const ProyekSection = () => {
                       className="absolute top-5 right-5 text-2xl text-slate-400 hover:text-white transition"
                       onClick={() => setSelectedProject(null)}
                     >
-                      ×
+                      &times;
                     </button>
                   </div>
 
-                  <div className="max-h-[calc(70vh-4.5rem)] overflow-y-auto p-8">
-                    <div className="text-center mb-8">
-                      <p className="text-amber-400 text-sm">OVERVIEW</p>
+                  <div className="max-h-[calc(85vh-5rem)] overflow-y-auto p-6 sm:p-8 space-y-8">
+                    <div>
+                      <div className="text-center mb-4">
+                        <p className="text-amber-400 text-xs tracking-widest font-bold">OVERVIEW</p>
+                      </div>
+                      <p className="text-slate-300 text-sm text-justify leading-relaxed whitespace-pre-line">
+                        {selectedProject.desk}
+                      </p>
                     </div>
-
-                    <p className="text-slate-300 text-sm mb-8 text-justify">
-                      {selectedProject.desk}
-                    </p>
 
                     <div className="space-y-8">
                       {Object.keys(selectedProject).map((key) => {
-                        if (
-                          Array.isArray(selectedProject[key]) &&
-                          key !== "gallery"
-                        ) {
+                        if (["id", "cover", "nama", "tahun", "desk", "gallery"].includes(key)) return null;
+
+                        // 1. Render data bertipe String Tunggal (seperti Functional Baru) dengan rata kanan-kiri
+                        if (typeof selectedProject[key] === "string") {
                           return (
                             <div key={key}>
-                              <h4 className="text-xs uppercase text-amber-400 mb-3">
+                              <h4 className="text-xs font-bold uppercase text-amber-400 mb-3 tracking-wider">
                                 {key}
                               </h4>
+                              <p className="text-sm text-slate-300 leading-relaxed text-justify whitespace-pre-line">
+                                {selectedProject[key]}
+                              </p>
+                            </div>
+                          );
+                        }
 
-                              <ul className="list-disc grid sm:grid-cols-2 gap-3">
+                        // 2. Render data bertipe Array
+                        if (Array.isArray(selectedProject[key])) {
+                          const isArrayOfObjects = typeof selectedProject[key][0] === "object";
+
+                          if (isArrayOfObjects) {
+                            return (
+                              <div key={key} className="w-full overflow-x-auto">
+                                <h4 className="text-xs font-bold uppercase text-amber-400 mb-3 tracking-wider">
+                                  {key}
+                                </h4>
+                                <table className="w-full text-left border-collapse border border-slate-700 text-sm rounded-lg overflow-hidden">
+                                  <thead>
+                                    <tr className="bg-slate-800 text-slate-200">
+                                      <th className="p-3 border border-slate-700 font-semibold">Component</th>
+                                      <th className="p-3 border border-slate-700 font-semibold">Specification</th>
+                                      <th className="p-3 border border-slate-700 font-semibold">Function</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    {selectedProject[key].map((item, i) => (
+                                      <tr key={i} className="hover:bg-slate-800/40 text-slate-300 transition-colors">
+                                        <td className="p-3 border border-slate-700 font-medium text-amber-400/90">{item.component}</td>
+                                        <td className="p-3 border border-slate-700 text-slate-200">{item.specification}</td>
+                                        <td className="p-3 border border-slate-700 text-xs text-slate-400 leading-relaxed">{item.function}</td>
+                                      </tr>
+                                    ))}
+                                  </tbody>
+                                </table>
+                              </div>
+                            );
+                          }
+
+                          // Render Array String biasa (fitur, frontend, performance, dll)
+                          return (
+                            <div key={key}>
+                              <h4 className="text-xs font-bold uppercase text-amber-400 mb-3 tracking-wider">
+                                {key}
+                              </h4>
+                              <ul className="list-disc list-inside grid sm:grid-cols-1 gap-2 pl-2">
                                 {selectedProject[key].map((item, i) => (
-                                  <li
-                                    key={i}
-                                    className="text-sm text-slate-300 p-2  "
-                                  >
-                                    {item}
+                                  <li key={i} className="text-sm text-slate-300 leading-relaxed text-justify">
+                                    <span className="text-slate-300 ml-1">{item}</span>
                                   </li>
                                 ))}
                               </ul>
@@ -175,63 +220,62 @@ const ProyekSection = () => {
                       })}
                     </div>
 
-                    <div className="mt-10">
-                      <h4 className="text-xs uppercase text-amber-400 mb-4 text-center">
-                        Documentation
-                      </h4>
+                    {/* Gallery/Documentation Section */}
+                    {selectedProject.gallery && selectedProject.gallery.length > 0 && (
+                      <div className="mt-10 pt-4">
+                        <h4 className="text-xs font-bold uppercase text-amber-400 mb-4 text-center tracking-wider">
+                          Documentation
+                        </h4>
 
-                      <div className="relative">
-                        <div className="custom-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 text-3xl text-amber-400 cursor-pointer hover:text-white">
-                          <i className="ri-arrow-left-s-line"></i>
+                        <div className="relative px-8">
+                          <div className="custom-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 text-3xl text-amber-400 cursor-pointer hover:text-white transition">
+                            <i className="ri-arrow-left-s-line"></i>
+                          </div>
+
+                          <div className="custom-next absolute right-0 top-1/2 -translate-y-1/2 z-10 text-3xl text-amber-400 cursor-pointer hover:text-white transition">
+                            <i className="ri-arrow-right-s-line"></i>
+                          </div>
+
+                          <Swiper
+                            modules={[Pagination, Navigation]}
+                            navigation={{
+                              prevEl: ".custom-prev",
+                              nextEl: ".custom-next",
+                            }}
+                            pagination={{
+                              clickable: true,
+                              dynamicBullets: true,
+                            }}
+                            spaceBetween={20}
+                            slidesPerView={1}
+                          >
+                            {selectedProject.gallery.map((img, i) => (
+                              <SwiperSlide key={i}>
+                                <div className="flex justify-center overflow-hidden rounded-lg bg-slate-950">
+                                  <img
+                                    src={img}
+                                    onClick={() => setPreviewImage(img)}
+                                    className="w-full h-44 sm:h-72 object-contain cursor-zoom-in transition-transform duration-300 hover:scale-102"
+                                    alt={`doc-${i}`}
+                                  />
+                                </div>
+                              </SwiperSlide>
+                            ))}
+                          </Swiper>
                         </div>
-
-                        <div className="custom-next absolute right-2 top-1/2 -translate-y-1/2 z-10 text-3xl text-amber-400 cursor-pointer hover:text-white">
-                          <i className="ri-arrow-right-s-line"></i>
-                        </div>
-
-                        <Swiper
-                          modules={[Pagination, Navigation]}
-                          navigation={{
-                            prevEl: ".custom-prev",
-                            nextEl: ".custom-next",
-                          }}
-                          pagination={{
-                            clickable: true,
-                            dynamicBullets: true,
-                          }}
-                          spaceBetween={20}
-                          slidesPerView={1}
-                        >
-                          {selectedProject.gallery?.map((img, i) => (
-                            <SwiperSlide key={i}>
-                              <div className="flex justify-center overflow-hidden rounded-lg">
-                                <img
-                                  src={img}
-                                  onClick={() => setPreviewImage(img)}
-                                  className="
-                                  w-full h-40
-                                  sm:h-64 sm:max-w-md 
-                                  object-cover cursor-zoom-in 
-                                  transition-transform duration-300 hover:scale-105
-                                "
-                                  alt={`doc-${i}`}
-                                />
-                              </div>
-                            </SwiperSlide>
-                          ))}
-                        </Swiper>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>
             </>,
-            document.body,
+            document.body
           )}
 
+        {/* Full Image Preview Zoom Modal */}
         {previewImage &&
           createPortal(
-            <div className="fixed inset-0 z-99999 flex items-center justify-center p-4">
+            <div className="fixed inset-0 z-99999 flex items-center justify-center p-4 animate-in fade-in duration-150">
               <div
                 className="absolute inset-0 bg-black/95 backdrop-blur-md"
                 onClick={() => setPreviewImage(null)}
@@ -240,19 +284,19 @@ const ProyekSection = () => {
               <div className="relative max-w-5xl w-full">
                 <img
                   src={previewImage}
-                  className="w-full max-h-[70vh] object-contain rounded-lg"
+                  className="w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
                   alt="preview"
                 />
 
                 <button
                   onClick={() => setPreviewImage(null)}
-                  className="absolute -top-10 right-0 text-white text-4xl hover:text-amber-400"
+                  className="absolute -top-12 right-0 text-white text-4xl hover:text-amber-400 transition"
                 >
                   &times;
                 </button>
               </div>
             </div>,
-            document.body,
+            document.body
           )}
       </div>
     </section>
