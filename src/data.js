@@ -270,12 +270,12 @@ import Proyek5 from "/assets/proyek/proyek6.png";
 import Proyek6 from "/assets/proyek/proyek7.png";
 
 export const listProyek = [
- {
-    id: 2,
-    cover: Proyek2,
-    nama: "Web Portofolio",
-    tahun: "2026",
-    desk: "A personal portfolio website developed using React with Vite as the build tool to enable a fast and lightweight development process. The interface is designed with Tailwind CSS, resulting in a modern, responsive, and consistent layout across various devices. Interactive features such as the project carousel are implemented using Swiper.js, with a modular component structure and separated data management to improve maintainability and scalability. The website is deployed on Vercel to ensure optimal performance and reliable accessibility.",
+  {
+    "id": 2,
+    "cover": Proyek2,
+    "nama": "Web Portofolio",
+    "tahun": "2026",
+    "desk": "A personal portfolio website developed using React with Vite as the build tool to enable a fast and lightweight development process. The interface is designed with Tailwind CSS, resulting in a modern, responsive, and consistent layout across various devices. Interactive features such as the project carousel are implemented using Swiper.js, with a modular component structure and separated data management to improve maintainability and scalability. The website is deployed on Vercel to ensure optimal performance and reliable accessibility.",
 
     frontend: [
       "React as the main library for building component-based user interfaces",
@@ -309,11 +309,11 @@ export const listProyek = [
   },
 
   {
-    id: 1,
-    cover: Proyek1,
-    nama: "Tool Load Unbalance Analyzer",
-    tahun: "2025",
-    desk: "Load Unbalance Analyzer is a GNU Octave-based application designed to analyze the loading condition of three-phase distribution transformers interactively. The program allows users to input phase current data, transformer capacity, phase voltage, and neutral resistance through a table input or by importing data from an Excel file. The system then calculates the neutral current, loading percentage, load imbalance level using the a, b, and c coefficient method, power losses, and estimated financial losses. The application is also equipped with load balancing simulation using a greedy algorithm to support technical evaluation of electric power distribution networks.",
+    "id": 1,
+    "cover": Proyek1,
+    "nama": "Tool Load Unbalance Analyzer",
+    "tahun": "2025",
+    "desk": "Load Unbalance Analyzer is a GNU Octave-based application designed to analyze the loading condition of three-phase distribution transformers interactively. The program allows users to input phase current data, transformer capacity, phase voltage, and neutral resistance through a table input or by importing data from an Excel file. The system then calculates the neutral current, loading percentage, load imbalance level using the a, b, and c coefficient method, power losses, and estimated financial losses. The application is also equipped with load balancing simulation using a greedy algorithm to support technical evaluation of electric power distribution networks.",
 
     fitur: [
       "Manual data input & Excel import",
@@ -346,7 +346,7 @@ export const listProyek = [
   "cover": Proyek3,
   "nama": "Design Layout ATS",
   "tahun": "2024",
-  "desk" : "An Automatic Transfer Switch (ATS) layout and control schematic design project focused on developing an automatic system for transferring the electrical power supply from the main source to a backup power source. The project includes designing the component layout inside a distribution box panel, with consideration given to space optimization, safe wiring paths, and structured physical component placement. The design also includes the development of a control schematic to support automatic power source transfer and ensure safe and organized system operation.",
+  "desk": "Automatic Transfer Switch (ATS) design layout and control schematic project. This electrical engineering design focuses on creating an automatic main power-to-backup power transition system infrastructure, ensuring optimal space planning, safe wiring paths, and structured physical component layout configurations inside a distribution box panel.",
   "Functional": "The Automatic Transfer Switch (ATS) system operates by continuously monitoring the availability of the main power source (PLN) using an electromagnetic relay, keeping the main contactor energized to supply the load while the backup source contactor remains de-energized. When the main power source experiences a power outage or voltage loss, the relay detects the condition and activates Timer 1, which after a 5-second delay, sends a signal to energize the backup source contactor and transfer the load. Once the main power source is restored and its voltage returns to normal, the relay detects the recovered supply and activates Timer 2, initiating another 5-second delay before de-energizing the backup contactor and re-energizing the main contactor to transfer the load back. Throughout this entire transfer process, both contactors operate with a strict interlocking sequence, ensuring they cannot be energized simultaneously.",
   "Specification": [
     {
@@ -403,7 +403,7 @@ export const listProyek = [
   "cover": Proyek4,
   "nama": "Design Layout Direct On - Line (DOL)",
   "tahun": "2024",
-  "desk": "A Direct-On-Line (DOL) Control Panel design and simulation project developed for a 1 HP (0.75 kW) three-phase induction motor starting system. The project integrates 2D/3D panel layout design using AutoCAD with control logic simulation and validation using CADe SIMU. The design includes component arrangement, wiring pathway optimization, and protection system coordination to support safe and reliable motor operation before physical panel assembly.",
+  "desk": "This project focuses on the comprehensive design and simulation of a Direct-On-Line (DOL) Control Panel for a 1 HP (0.75 kW) three-phase induction motor starting system. The engineering workflow integrates high-precision 2D/3D physical layout modeling in AutoCAD with rigorous logical and functional validation inside CADe SIMU. By bridging mechanical spatial design and electrical control logic, the project ensures safety standard compliance, optimal wiring pathways, and flawless protection coordination before physical panel assembly.",
   "Functional": "The Direct-On-Line (DOL) starting system operates by delivering full three-phase line voltage directly to the 1 HP motor terminals when the Normally Open (NO) Start button is pressed, which activates the magnetic contactor coil and simultaneously closes the auxiliary NO contact (13-14) to establish a self-holding (latching) circuit that maintains power after the button is released. This continuous power supply remains active until the system is either manually shut down by pressing the Normally Closed (NC) Stop button—instantly interrupting the control loop—or automatically tripped by the Thermal Overload Relay (TOR) opening its NC contact (95-96) due to excessive thermal generation from an overcurrent condition, thereby isolating the motor and protecting its stator windings from severe damage.",
   "Specification": [
     {
@@ -471,7 +471,7 @@ export const listProyek = [
   "cover": Proyek5,
   "nama": "Design Layout Forward Reverse",
   "tahun": "2024",
-  "desk": "This project focuses on the design of a Forward-Reverse Control Panel for a 1 HP (0.75 kW) three-phase induction motor, integrating physical panel design with control system simulation. The component layout and wiring pathways were designed using AutoCAD, while the operating logic and electrical interlocking system were validated through CADe SIMU simulation. This project serves as a practical application of knowledge in motor control, electrical panel design, and protection systems, incorporating an interlocking mechanism to prevent the Forward and Reverse contactors from operating simultaneously before the panel is physically assembled.",
+  "desk": "This project focuses on the comprehensive design and simulation of a Forward-Reverse Control Panel for a 1 HP (0.75 kW) three-phase induction motor rotational direction management system. The engineering workflow integrates high-precision 2D/3D physical layout modeling in AutoCAD with rigorous logical and functional validation inside CADe SIMU. By bridging mechanical spatial design and electrical control logic, the project ensures safety standard compliance, optimal wiring pathways, and flawless electrical interlocking coordination to prevent short circuits before physical panel assembly.",
   "Functional": "The Forward-Reverse motor control system operates by alternating the phase sequence supplied to a 1 HP three-phase induction motor through the coordination of two separate magnetic contactors. When the Forward button is pressed, the first contactor coil energizes, securing a self-holding path and running the motor clockwise. Pressing the Reverse button activates the second contactor, swapping two power phases to reverse the motor's rotational direction. Throughout this process, a strict electrical interlocking sequence is maintained via normally closed (NC) auxiliary contacts to prevent both contactors from energizing simultaneously, which would cause a catastrophic phase-to-phase short circuit. The entire operation remains safely active until interrupted by the manual Stop button or automatically tripped by the Thermal Overload Relay (TOR) protecting the system from overcurrent conditions.",
   "Specification": [
     {
@@ -556,8 +556,7 @@ export const listProyek = [
   "cover": Proyek6,
   "nama": "Design Layout Star Delta",
   "tahun": "2024",
-  "desk": "This project focuses on the design and simulation of a Star-Delta Control Panel for a 3 HP (2.2 kW) three-phase induction motor starting system. The design integrates 3D panel layout modelling using AutoCAD, component arrangement, and the development of technical schematics. The control logic is then simulated and validated using CADe SIMU to test the switching sequence from the Star to Delta configuration, automatic transition, electrical interlocking, and motor protection system coordination. This project serves as a practical application of knowledge in motor starting methods, electrical panel design, and three-phase motor control systems.
-",
+  "desk": "This project focuses on the engineering design and simulation of a Star-Delta Control Panel for a 3 HP (2.2 kW) three-phase induction motor starting infrastructure using AutoCAD. The design pipeline covers high-precision 3D layout modeling, spatial component arrangements, and technical schematics. The control logic is comprehensively simulated and validated inside CADe SIMU to verify sequential switching phases, automatic transitions, electrical interlocking safety, and heavy-duty motor protection systems.",
   "Functional": "The Star-Delta control system operates by reducing the starting current of a 3 HP three-phase induction motor through a multi-stage electrical transition managed by three distinct contactors: Main, Star, and Delta. Upon pressing the Start button, the Main and Star contactors activate simultaneously, connecting the motor windings in a Star configuration to draw lower initial current from the grid. Once the preset time on the On-Delay Timer is reached, the Star contactor disengages and the Delta contactor safely activates, transitioning the motor to a full-voltage Delta run configuration. A critical electrical interlocking circuit is maintained via auxiliary contacts to prevent simultaneous operation of the Star and Delta contactors, avoiding hazardous phase-to-phase short circuits. The entire control loop remains fully operational until interrupted by the manual Stop command or tripped by the Thermal Overload Relay.",
   "Specification": [
     {
