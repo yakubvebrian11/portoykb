@@ -113,23 +113,26 @@ function AboutSection() {
               variants={textContainerVariants}
               className="flex-1 text-center lg:text-left"
             >
+              {/* Name */}
               <motion.h2
                 variants={textVariants}
-                className="text-lg font-bold text-white mb-1"
+                className="text-xl font-bold text-white mb-1"
               >
                 Yakub Vebrian
               </motion.h2>
 
+              {/* Education / Position */}
               <motion.p
                 variants={textVariants}
-                className="text-amber-400 text-xs font-medium mb-3"
+                className="text-amber-400 text-sm font-medium mb-4"
               >
                 B.Eng. - Electrical Engineering
               </motion.p>
 
+              {/* Description */}
               <motion.p
                 variants={textVariants}
-                className="text-zinc-300 text-xs md:text-sm leading-relaxed text-justify"
+                className="text-zinc-300 text-sm md:text-[15px] leading-7 text-justify"
               >
                 Bachelor of Electrical Engineering graduate from Tidar
                 University, specialising in Power Systems, with a strong
