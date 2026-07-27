@@ -115,17 +115,8 @@ function AboutSection() {
   variants={textVariants}
   className="text-zinc-300 text-xs md:text-sm leading-relaxed text-justify"
 >
-  Bachelor of Electrical Engineering graduate with a concentration in Power
-  Systems. Experienced through internships and laboratory assistant roles in
-  the operation, maintenance, testing, and troubleshooting of electrical
-  systems, including electrical parameter measurement, distribution transformer
-  load analysis, network inspection, and voltage disturbance troubleshooting.
-  Skilled in designing motor control panels, including Direct On-Line (DOL),
-  Forward-Reverse, Star-Delta, Automatic Transfer Switch (ATS), and
-  interlocking systems, with fundamental knowledge of PLC programming using
-  CX-Programmer. Proficient in ETAP, AutoCAD, and CADe SIMU. Possess strong
-  analytical and communication skills, with the ability to work effectively
-  both independently and as part of a team.
+  Bachelor of Electrical Engineering graduate from Tidar University, specialising in Power Systems, with a strong interest in Electrical Maintenance. Gained practical experience through an internship at PT PLN (Persero) ULP Magelang Kota, supporting electrical network inspection, maintenance, repair, and troubleshooting activities, including Fuse Cut Out (FCO) replacement and handling customer electrical faults. Possess knowledge of electrical parameter measurement and analysis, motor control circuits and electrical panel design, as well as basic PLC programming using CX-Programmer. Proficient in ETAP, AutoCAD, CADe SIMU, and GNU Octave, with strong analytical, problem-solving, and teamwork skills, along with a strong motivation to build a career in Electrical Maintenance.
+
 </motion.p>
               </div>
             </div>
