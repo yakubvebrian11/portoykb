@@ -7,6 +7,7 @@ function HeroSection() {
 
   const skills = [
     "Control Panel Design",
+     "Electrical Maintenance",
     "Solar Panel Engineering",
     "Electrical Wiring",
     "Electrical Installation"
